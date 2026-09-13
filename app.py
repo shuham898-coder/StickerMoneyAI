@@ -52,7 +52,7 @@ def webhook():
 
     return "OK", 200
     
-    @app.route("/setup-webhook", methods=["GET"])
+    @app.route("/setup-webhook", methods=["GET"]) 
 def setup_webhook():
     base_url = request.host_url.rstrip("/")
     response = requests.get(
