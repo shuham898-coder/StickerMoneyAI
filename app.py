@@ -55,7 +55,7 @@ def webhook():
 
 @app.route("/setup-webhook", methods=["GET"])
 def setup_webhook():
-    base_url = request.host_url.rstrip("/")
+    base_url = f"https://{request.host}"
     response = requests.get(
         f"{TELEGRAM_API}/setWebhook",
         params={"url": f"{base_url}/webhook"},
