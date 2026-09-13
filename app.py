@@ -51,3 +51,13 @@ def webhook():
         send_message(chat_id, "Пришли мне фотографию 📸")
 
     return "OK", 200
+    
+    @app.route("/setup-webhook", methods=["GET"])
+def setup_webhook():
+    base_url = request.host_url.rstrip("/")
+    response = requests.get(
+        f"{TELEGRAM_API}/setWebhook",
+        params={"url": f"{base_url}/webhook"},
+        timeout=10,
+    )
+    return response.json()
